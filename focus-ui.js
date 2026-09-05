@@ -172,8 +172,10 @@ export function setupFocus({storage, sessions, qa, namespace, onChange, announce
     const quiet = document.documentElement.dataset.motion !== 'full' || document.hidden;
     if (quiet && window.gsap) {
       const books = document.querySelectorAll('.shelf-book');
-      window.gsap.killTweensOf(books);
-      window.gsap.set(books,{clearProps:'transform,opacity'});
+      if (books.length) {
+        window.gsap.killTweensOf(books);
+        window.gsap.set(books,{clearProps:'transform,opacity'});
+      }
     }
     if (art) {
       const clipPath = `inset(${(1-progress)*100}% 0 0 0)`;
