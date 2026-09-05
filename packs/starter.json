@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "pack": {
+    "id": "starter-core",
+    "title": "Starter Core: Algorithms, Backend, Systems",
+    "description": "Three standalone practice lessons for recognising an invariant, defining a retry-safe boundary, and reasoning about recoverable work.",
+    "firstSession": "pair-sum",
+    "tracks": [
+      {"id": "dsa", "title": "DSA", "description": "Practice the pair-sum hash lookup invariant.", "sessionIds": ["pair-sum"]},
+      {"id": "backend", "title": "Backend engineering", "description": "Practice a durable idempotency boundary.", "sessionIds": ["retry-safe-command"]},
+      {"id": "systems", "title": "Distributed systems", "description": "Practice durable intent and recovery after process loss.", "sessionIds": ["recoverable-work"]}
+    ],
+    "sessions": [
+      {
+        "id": "pair-sum",
+        "title": "Find a pair that reaches the target",
+        "category": "Algorithms",
+        "lenses": ["algorithm"],
+        "home": "general",
+        "capability": "Hash lookup invariant",
+        "estimatedMinutes": 30,
+        "prompt": "Given an unsorted list of integers and a target, which strategy finds whether two different positions sum to the target in linear expected time?",
+        "options": ["Sort the list and compare every pair", "Keep seen values in a hash map and look up the complement before storing the current value", "Use a nested loop and stop after the first match"],
+        "answer": 1,
+        "feedback": "The lookup records values that appeared earlier. For each current value x, target minus x names the only earlier value that can complete the pair.",
+        "model": "Maintain the invariant: before processing the current value, the map contains exactly the values from earlier positions. Looking up target minus current decides whether an earlier partner exists without revisiting every pair.",
+        "example": "values = [2, 7, 11], target = 9. Before 7, seen is {2}. The needed complement is 2, so the pair is found.",
+        "trigger": "The prompt asks for a pair, membership or complement over an unsorted collection.",
+        "nonTrigger": "If the input is sorted and pointer movement is available, a two-pointer method may be simpler and use less extra memory.",
+        "invariant": "The map contains only earlier values, so a successful lookup names two distinct positions.",
+        "trace": [
+          {"code": "current = 2; need = 7; seen = {}", "note": "No earlier partner exists, so store 2."},
+          {"code": "current = 7; need = 2; seen = {2}", "note": "The complement is already present, so stop with a valid pair."}
+        ],
+        "decision": {"prompt": "Why check the complement before storing the current value?", "options": ["It avoids using the same position twice when target equals twice the value", "It makes sorting unnecessary", "It guarantees constant memory"], "answer": 0, "feedback": "Checking first preserves the earlier-position invariant, including duplicate values."},
+        "explainPrompt": "Explain the hash lookup invariant, one tempting wrong approach, and the expected time and space costs using a fresh example.",
+        "checklist": ["I named the complement cue.", "I traced a duplicate-value case.", "I stated the invariant and complexity."],
+        "rubric": ["Clarify whether values may repeat and whether positions must differ.", "State the brute-force baseline before selecting the invariant.", "Implement without copying a solution.", "Run an empty, duplicate, and no-match case."],
+        "sources": [{"label": "Java HashMap API", "url": "https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/HashMap.html"}],
+        "reviewPrompt": "Why does checking before insertion matter when the target is twice the current value?",
+        "prerequisites": [],
+        "task": "In your own editor, implement a method that returns two distinct positions or an explicit no-match result. Record the three cases you actually ran."
+      },
+      {
+        "id": "retry-safe-command",
+        "title": "Make a retried command safe",
+        "category": "Backend engineering",
+        "lenses": ["backend"],
+        "home": "general",
+        "capability": "Idempotency boundary",
+        "estimatedMinutes": 35,
+        "prompt": "A client sends a command, loses the response, and retries. Which contract prevents a duplicate side effect?",
+        "options": ["Disable the submit button briefly", "Persist a scoped idempotency key, request fingerprint, and result atomically", "Retry until an HTTP 200 response arrives"],
+        "answer": 1,
+        "feedback": "A user-interface control cannot coordinate retries from another process. The command needs durable identity at the write boundary.",
+        "model": "A retry repeats an uncertain intention. Scope an idempotency key, bind it to a request fingerprint, and atomically reserve the key with the durable result. The same key and payload replay the result; the same key with a changed payload conflicts.",
+        "example": "Command key import-42 is accepted, but the response is lost. Repeating import-42 with the same fingerprint returns the recorded command rather than creating another one.",
+        "trigger": "A network response can be lost after a side effect may already have committed.",
+        "nonTrigger": "A genuinely new intention needs a new key even if its payload looks similar.",
+        "invariant": "At most one accepted result exists for a scoped key and fingerprint.",
+        "trace": [
+          {"code": "request A: key absent", "note": "A separate read then insert races with another writer."},
+          {"code": "key, fingerprint, result committed together", "note": "A later retry can read durable truth after a process crash."}
+        ],
+        "decision": {"prompt": "Two processes observe an absent key at the same time. What arbitrates the result?", "options": ["A shared uniqueness constraint with a transaction", "A process-local map", "A sleep before insertion"], "answer": 0, "feedback": "Only shared atomic enforcement can decide between concurrent writers."},
+        "explainPrompt": "Explain retry, duplicate intention, and conflicting payload. Name the atomic boundary and one remaining crash window.",
+        "checklist": ["I distinguished a retry from a new command.", "I named the durable enforcement point.", "I described a conflict response."],
+        "rubric": ["Define key scope and lifetime.", "Describe duplicate, conflict, and in-progress responses.", "Name the transaction or uniqueness boundary.", "State what a single-process demonstration cannot prove."],
+        "sources": [{"label": "HTTP Idempotency-Key header", "url": "https://www.ietf.org/archive/id/draft-ietf-httpapi-idempotency-key-header-07.html"}],
+        "reviewPrompt": "What must a retry read after the original process commits but crashes before replying?",
+        "prerequisites": [],
+        "task": "Write a short command contract with key scope, request fingerprint, duplicate response, conflict response, and one concurrency test you would run."
+      },
+      {
+        "id": "recoverable-work",
+        "title": "Keep long-running work recoverable",
+        "category": "Systems reasoning",
+        "lenses": ["systems"],
+        "home": "general",
+        "capability": "Durable intent and recovery",
+        "estimatedMinutes": 35,
+        "prompt": "A service records a work request successfully, then its enqueue call fails. Which design preserves intent without pretending both systems share one transaction?",
+        "options": ["Discard the request and ask the client to retry", "Persist recoverable enqueue intent such as an outbox, then retry delivery", "Keep retry state only in process memory"],
+        "answer": 1,
+        "feedback": "Durable intent survives process loss. Delivery can retry later, while workers still need idempotent handling because messages may repeat.",
+        "model": "Separate accepting intent from delivering work. A durable record captures what was accepted; a delivery process retries publication; workers make effects safe under duplicate delivery. Recovery is a state machine, not a hope that calls happen once.",
+        "example": "A job row and outbox event commit together. The process exits before publication. A later dispatcher reads the outbox and sends the work without losing the accepted job.",
+        "trigger": "Two durable systems must coordinate but cannot share an atomic transaction.",
+        "nonTrigger": "A synchronous call may be sufficient when the caller can safely fail before any durable intent exists.",
+        "invariant": "Every accepted work request remains discoverable until delivery reaches a defined terminal state.",
+        "trace": [
+          {"code": "accept request -> commit job and outbox", "note": "The accepted intention is durable before external delivery."},
+          {"code": "dispatcher retries publication", "note": "A crash after commit does not erase the delivery obligation."}
+        ],
+        "decision": {"prompt": "Why does the worker still need idempotency after an outbox is added?", "options": ["Publication and delivery can still repeat", "Outbox rows are always unique", "The database now controls every dependency"], "answer": 0, "feedback": "At-least-once delivery remains possible, so the effect boundary needs its own duplicate protection."},
+        "explainPrompt": "Draw accept, durable intent, delivery, worker effect, and recovery. Identify one crash between adjacent steps and how the system responds.",
+        "checklist": ["I separated acceptance from delivery.", "I named a durable recovery record.", "I explained why duplicate delivery remains possible."],
+        "rubric": ["State the terminal states and retry owner.", "Trace at least one process-loss scenario.", "Name the worker idempotency boundary.", "Separate demonstrated behavior from design intent."],
+        "sources": [{"label": "Microservices.io transactional outbox", "url": "https://microservices.io/patterns/data/transactional-outbox.html"}],
+        "reviewPrompt": "What evidence shows an accepted request was neither silently lost nor applied twice after a restart?",
+        "prerequisites": ["retry-safe-command"],
+        "task": "Draw a five-state recovery flow for accepted work. Mark the durable records, retry owner, and one duplicate-delivery defense."
+      }
+    ]
+  }
+}

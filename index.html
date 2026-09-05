@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark"><meta name="description" content="Padipps: a local-first study notebook, practice loop and Pomodoro bookshelf. Bring your own study packs."><meta name="referrer" content="no-referrer">
+<title>Padipps · Practice with intention</title><link rel="icon" href="assets/padipps-icon.webp" type="image/webp">
+<script src="appearance.js"></script><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="focus.css"><script src="vendor/gsap-3.15.0.min.js"></script><script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to practice</a>
+<div class="shell">
+<aside class="rail" id="app-rail">
+<div class="rail-top"><a class="brand" href="#today" aria-label="Padipps home"><img class="brand-icon" src="assets/padipps-icon.webp" alt=""><span class="brand-copy">Padipps<small>Make time for understanding.</small></span></a><button id="rail-toggle" class="rail-toggle" type="button" aria-controls="main-navigation" aria-expanded="true" aria-label="Collapse sidebar"><span aria-hidden="true">☰</span><span class="rail-toggle-text">Collapse sidebar</span></button></div>
+<nav id="main-navigation" aria-label="Main navigation">
+<a href="#today" data-nav="today"><span aria-hidden="true">◷</span> Today</a>
+<a href="#practice" data-nav="practice"><span aria-hidden="true">▤</span> Practice</a>
+<a href="#focus" data-nav="focus"><span aria-hidden="true">◴</span> Focus room</a>
+<a href="#packs" data-nav="packs"><span aria-hidden="true">◈</span> Study packs</a>
+<a href="#history" data-nav="history"><span aria-hidden="true">↺</span> Review &amp; history <span id="due-count" class="count"></span></a>
+<a href="#notebook" data-nav="notebook"><span aria-hidden="true">▧</span> Notebook</a>
+</nav>
+<div class="rail-foot"><span class="local-dot" aria-hidden="true"></span> Local practice, your work<p>No account. No automatic grading.</p><a href="#about">How this works</a></div>
+</aside>
+<div class="workspace"><header class="topbar"><span id="breadcrumb">Your practice desk</span><div class="topbar-tools"><button id="motion-toggle" data-action="motion-toggle" class="text-button" type="button">Motion: on</button><label class="theme-control" for="theme-select">Theme <select id="theme-select"><option value="ink">Ink</option><option value="sand">Sand</option><option value="midnight">Midnight</option><option value="violet">Violet</option><option value="rose">Rose</option><option value="graphite">Graphite</option></select></label><a class="backup-link" href="#storage">Backup</a><span id="save-status" role="status">Checking notebook…</span></div></header>
+<span id="theme-status" class="sr-only" role="status"></span>
+<div id="storage-alert" class="storage-alert" role="alert" hidden></div>
+<main id="main" tabindex="-1"></main><footer class="footer">A small model is a start. Your own work makes it evidence.</footer>
+</div></div>
+<div id="focus-dock" hidden></div>
+<div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+<noscript><p class="noscript">Enable JavaScript to save local drafts and use practice gates.</p></noscript>
+</body></html>

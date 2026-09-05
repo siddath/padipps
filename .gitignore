@@ -1,0 +1,10 @@
+node_modules/
+dist/
+private-packs/
+local-packs/
+backups/
+evidence/
+.env
+.env.*
+*.log
+.DS_Store
