@@ -1,0 +1,8 @@
+# TODO: author values for your own disposable local cluster.
+# No live credentials, public ingress, registry push or production context is provided.
+image: null
+applicationPort: null
+stubConfiguration: null
+resources: null
+readinessProbe: null
+livenessProbe: null

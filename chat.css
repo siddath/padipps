@@ -1,0 +1,53 @@
+/* Optional Study chat sits inside the lesson flow and never obscures practice state. */
+.study-chat-slot{display:none}
+.study-chat-slot:has(.study-chat-panel:not([hidden])){display:block}
+.study-chat-panel [hidden]{display:none!important}
+.study-chat-panel{min-width:0;margin-top:24px;padding-top:22px;border-top:1px solid var(--line);color:var(--ink)}
+.lesson-layout>.study-chat-slot{min-width:0}
+.lesson-layout>.study-chat-slot .study-chat-panel{margin:0;padding:26px 24px;background:var(--paper);border:1px solid var(--line);border-radius:12px}
+.study-chat-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+.study-chat-head h2{font-size:21px;margin-top:4px}
+.study-chat-kicker{font-size:11px;font-weight:650;letter-spacing:.065em;text-transform:uppercase;color:var(--muted)}
+.study-chat-close{flex-shrink:0}
+.study-chat-lesson{font-size:13px;color:var(--muted);margin-top:8px}
+.study-chat-context{margin:18px 0 20px;padding:11px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.study-chat-context summary{cursor:pointer;min-height:32px;font-size:12px;font-weight:650;color:var(--muted)}
+.study-chat-context pre{margin:7px 0 2px;padding:12px;background:var(--canvas);font-size:11px;line-height:1.55;color:var(--muted);max-height:210px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}
+.study-chat-modes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:20px}
+.study-chat-modes button{min-width:0;min-height:62px;padding:10px;text-align:left;border:1px solid var(--line);border-radius:8px;background:transparent;color:var(--ink)}
+.study-chat-modes button[aria-pressed=true]{border-color:var(--primary);background:var(--soft);color:var(--accent)}
+.study-chat-modes strong,.study-chat-modes span{display:block}
+.study-chat-modes strong{font-size:12px;line-height:1.3}
+.study-chat-modes span{font-size:11px;line-height:1.4;margin-top:4px;color:var(--muted)}
+.study-chat-transcript{display:grid;gap:12px;max-height:390px;overflow:auto;overscroll-behavior:contain;padding:3px 4px 3px 0;scrollbar-width:thin}
+.study-chat-empty{font-size:13px;color:var(--muted);padding:16px 0}
+.study-chat-message{padding:13px 14px;border-radius:8px;background:var(--soft);font-size:13px}
+.study-chat-message.user{margin-left:12%;background:var(--primary);color:var(--on-primary)}
+.study-chat-message.assistant{margin-right:8%;border:1px solid var(--line);background:var(--paper)}
+.study-chat-message strong{display:block;font-size:11px;letter-spacing:.045em;text-transform:uppercase;opacity:.78;margin-bottom:6px}
+.study-chat-message p{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.58}
+.study-chat-pending{display:flex;align-items:center;gap:9px;padding:14px 0;font-size:12px;color:var(--muted)}
+.study-chat-pending .text-button{margin-left:auto}
+.pending-mark{width:9px;height:9px;border:2px solid var(--line);border-top-color:var(--primary);border-radius:50%;animation:study-chat-turn .8s linear infinite}
+@keyframes study-chat-turn{to{transform:rotate(360deg)}}
+.study-chat-error{margin:14px 0;padding:12px 14px;background:var(--error-bg);color:var(--error);border-radius:8px;font-size:12px;line-height:1.55}
+.study-chat-error .text-button{color:inherit;margin-left:4px}
+.study-chat-form{margin-top:18px}
+.study-chat-form>label,.study-chat-fallback>label{display:block;font-size:12px;font-weight:650}
+.study-chat-form textarea,.study-chat-fallback textarea{font-size:15px;border-radius:8px;background:var(--paper);resize:vertical}
+.study-chat-network{font-size:12px;line-height:1.55;color:var(--muted);margin-top:8px}
+.study-chat-send{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}
+.study-chat-save{font-size:12px;line-height:1.4;color:var(--muted)}
+.study-chat-disclosure{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.55}
+.study-chat-fallback{margin-top:18px;padding-top:18px;border-top:1px solid var(--line)}
+.study-chat-fallback textarea{min-height:150px;font-size:12px;line-height:1.55}
+.study-chat-fallback .btn{margin-top:10px}
+.study-chat-foot{display:grid;gap:9px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:11px;line-height:1.55;color:var(--muted)}
+.study-chat-foot>div{display:flex;gap:14px;flex-wrap:wrap}
+.study-chat-foot .text-button{font-size:11px;min-height:30px;text-align:left}
+.study-chat-boundary{color:var(--ink);font-size:12px}
+@media(min-width:1181px){.lesson-layout:has(.study-chat-panel:not([hidden])){grid-template-columns:repeat(2,minmax(0,1fr))}.lesson-layout:has(.study-chat-panel:not([hidden])) .lesson-pane{align-self:start}.lesson-layout:has(.study-chat-panel:not([hidden])) .lesson-aside{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:32px;border-top:1px solid var(--line);padding-top:24px}.lesson-layout:has(.study-chat-panel:not([hidden])) .lesson-aside .divider{display:none}}
+@media(max-width:650px){.study-chat-panel,.lesson-layout>.study-chat-slot .study-chat-panel{padding:20px 0 0;border-width:1px 0 0;border-radius:0;background:transparent}.study-chat-modes{grid-template-columns:1fr}.study-chat-modes button{min-height:50px}.study-chat-message.user{margin-left:5%}.study-chat-message.assistant{margin-right:3%}.study-chat-send .btn{min-width:92px}.study-chat-transcript{max-height:330px}.study-chat-form textarea{font-size:16px}.study-chat-foot>div{gap:18px}}
+@media(prefers-reduced-motion:reduce){.pending-mark{animation:none}}
+html[data-motion=reduced] .pending-mark{animation:none}
+@media print{.study-chat-panel,[data-study-chat]{display:none!important}}

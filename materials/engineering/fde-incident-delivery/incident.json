@@ -1,0 +1,13 @@
+{
+  "provenance": "fictional tabletop; not production telemetry",
+  "tenants": ["aster", "birch"],
+  "timeline": [
+    { "offsetMinutes": 0, "observation": "Local release candidate B starts. Database compatibility has not been checked." },
+    { "offsetMinutes": 2, "observation": "HubSpot stub response duration rises; the fixture does not identify why." },
+    { "offsetMinutes": 3, "observation": "Accepted Slack jobs accumulate while the pod readiness endpoint still succeeds." },
+    { "offsetMinutes": 4, "observation": "Aster operator reports delayed answers; Birch customer impact has not been checked." },
+    { "offsetMinutes": 6, "observation": "One retry has an uncertain result. The durable operation identity is available for inspection." }
+  ],
+  "unknowns": ["root cause", "full tenant impact", "schema rollback compatibility", "backlog outcome", "recovery time"],
+  "prohibitedClaims": ["confirmed root cause from timestamp correlation", "all tenants recovered from pod health", "production incident ownership"]
+}

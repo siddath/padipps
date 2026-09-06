@@ -1,5 +1,7 @@
 # Third-party notices
 
+The root MIT license applies to original Padipps code and educational writing. Third-party components are excluded from that grant and retain the terms below.
+
 ## GSAP 3.15.0
 
 `vendor/gsap-3.15.0.min.js` is Copyright 2026 GreenSock. It is distributed under the [GSAP Standard License](https://gsap.com/community/standard-license/), separately from the MIT license for Padipps. Its original copyright and license header is retained. Refer to that license for permitted use and restrictions, including restrictions on competing visual animation builders.

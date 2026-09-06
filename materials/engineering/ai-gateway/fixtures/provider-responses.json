@@ -1,0 +1,21 @@
+{
+  "valid": {
+    "outcome": "response",
+    "body": "{\"decision\":\"pause\",\"operatorMessage\":\"Queue growth requires operator review.\"}"
+  },
+  "refusal": {
+    "outcome": "refusal",
+    "message": "The fake provider declined this request."
+  },
+  "invalid-json": {
+    "outcome": "response",
+    "body": "{decision: pause"
+  },
+  "timeout": {
+    "outcome": "timeout"
+  },
+  "unsafe-output": {
+    "outcome": "response",
+    "body": "{\"decision\":\"continue\",\"operatorMessage\":\"<script>fictionalUnsafeAction()</script>\"}"
+  }
+}

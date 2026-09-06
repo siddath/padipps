@@ -1,0 +1,7 @@
+# Unsolved starter. Copy to Dockerfile in your own capstone delivery folder.
+# TODO: choose a supported trusted base with an explicitly recorded digest/update policy.
+# TODO: install your locked dependencies and copy only required application files.
+# TODO: choose a non-root runtime identity, working directory and startup contract.
+# TODO: keep synthetic configuration external and credentials out of every image layer.
+# TODO: document how your image serves health probes and drains accepted work on shutdown.
+# This file intentionally has no FROM or CMD and cannot build an application.
