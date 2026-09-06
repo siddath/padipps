@@ -1,0 +1,16 @@
+# A proposal only; deliberately outside .github/workflows and blocked.
+name: capstone-delivery-proposal
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  incomplete:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Learner implementation required
+        run: |
+          echo 'TODO: author tests, image build, artifact identity, chart validation and gated promotion.'
+          exit 1
+# TODO: document build inputs, dependency/action versions and artifact provenance.
+# TODO: distinguish local validation, executed CI and an authorized deployment.
+# Never add a customer token, automatic registry push or cloud deploy to this exercise.

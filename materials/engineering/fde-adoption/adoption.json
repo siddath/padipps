@@ -1,0 +1,22 @@
+{
+  "provenance": "synthetic fictional activity; no real customer or commercial outcome",
+  "people": [
+    { "tenant": "aster", "userId": "u1", "eligible": true, "isBot": false },
+    { "tenant": "aster", "userId": "u2", "eligible": true, "isBot": false },
+    { "tenant": "birch", "userId": "u1", "eligible": true, "isBot": false },
+    { "tenant": "birch", "userId": "u2", "eligible": false, "isBot": false },
+    { "tenant": "aster", "userId": "bot1", "eligible": true, "isBot": true }
+  ],
+  "events": [
+    { "id": "b1", "tenant": "aster", "userId": "u1", "period": "baseline", "outcome": "useful" },
+    { "id": "p1", "tenant": "aster", "userId": "u1", "period": "pilot", "outcome": "useful" },
+    { "id": "p1", "tenant": "aster", "userId": "u1", "period": "pilot", "outcome": "useful" },
+    { "id": "p2", "tenant": "aster", "userId": "u1", "period": "pilot", "outcome": "useful" },
+    { "id": "p3", "tenant": "birch", "userId": "u1", "period": "pilot", "outcome": "useful" },
+    { "id": "p4", "tenant": "aster", "userId": "u2", "period": "pilot", "outcome": "denied" },
+    { "id": "p5", "tenant": "aster", "userId": "bot1", "period": "pilot", "outcome": "useful" },
+    { "id": "p6", "tenant": "birch", "userId": "u2", "period": "pilot", "outcome": "useful" }
+  ],
+  "observedBaselineMinutesPerTask": null,
+  "observedCommercialOutcomes": null
+}

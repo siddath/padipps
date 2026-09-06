@@ -1,5 +1,7 @@
 # Study pack format
 
+The included [engineering pack](packs/engineering.json) provides 31 lessons across six tracks. Preview it from **Study packs**; selection is explicit and its records stay separate from the original starter. See the [track guide](docs/STUDY_TRACKS.md) for prerequisites and exercise materials.
+
 Start by downloading **Study packs → Download current pack** or copying [`packs/starter.json`](packs/starter.json). The version 1 envelope is:
 
 ```json
@@ -35,6 +37,8 @@ The envelope above is illustrative; an import needs at least one complete sessio
 Packs are limited to 2 MB, 100 lessons and 20 tracks. Every lesson must be assigned to a track. `all` is reserved for the combined practice view. IDs use letters, numbers, dots, underscores, colons or hyphens; start with a letter or number and stay within 128 characters. Unknown fields and unsafe identifiers are rejected. See `pack-engine.js` for exact text and array bounds.
 
 Use original teaching material or material you have permission to distribute. Reference source passages with links rather than copying whole books. Never put API keys, private learner notebooks, credentials or executable HTML into a pack.
+
+Importing a pack is local. If the learner enables their own Codex and presses Send, the tutor receives the previewed, stage-specific lesson context and recent messages. The adapter does not upload the whole pack, recognition answer keys, notebook or focus record. Imported text remains untrusted teaching content, not instructions that grant tools or file access.
 
 A pack ID and its content fingerprint select the browser notebook. Reusing an ID for incompatible lesson content may make older gated drafts incompatible. Use a new pack ID for those revisions and keep the previous JSON available. Export notebook and focus data before a major change.
 
