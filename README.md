@@ -6,7 +6,7 @@ Your work stays in your browser. Optional tutoring connects to your own Codex ac
 
 [Try Padipps](https://siddath.github.io/padipps/) · [Study tracks](docs/STUDY_TRACKS.md) · [Create a pack](PACKS.md) · [Codex setup](docs/CODEX.md)
 
-![Padipps practice library in the Ink theme, with 31 lessons and six track filters](docs/screenshots/practice.jpg)
+![Padipps practice library in the Ink theme, with 40 lessons and six track filters](docs/screenshots/practice.jpg)
 
 *The running app with the engineering pack selected. Screenshots use an isolated demo session; no personal study records or account details appear. [Capture details](docs/screenshots/README.md).*
 
@@ -15,7 +15,7 @@ Your work stays in your browser. Optional tutoring connects to your own Codex ac
 | Feature | What you can do |
 | --- | --- |
 | Guided practice | Recognise the problem, work through a small model and trace, explain it back, then attempt an independent task. Record an outcome, evidence and a review date. |
-| Study library | Start with three lessons or select the optional engineering pack: 31 lessons across six overlapping tracks, with 96 exercise/material files. Filter by track and search within it. |
+| Study library | Start with three lessons or select the optional engineering pack: 40 lessons across six overlapping tracks, including an eight-module AI route and a Kafka consumer-lag lesson. Filter by track and search within it. |
 | Notebook | Link notes to lessons, search them, mark them Open, Revisit or Resolved, and inspect up to 20 previous versions. Drafts save as you type. |
 | Focus timer | Configure focus, short-break and long-break intervals. Pause, resume or reload without losing the timer. Start each interval yourself. |
 | Study shelf | Reveal a book after a finished focus timer. Choose philosophy, art or spirituality ideas with source links and reflection questions, or turn ideas off. |
@@ -27,7 +27,11 @@ Your work stays in your browser. Optional tutoring connects to your own Codex ac
 Practice outcomes are self-reported. A completed timer records elapsed time; it does not establish attention or understanding. The app does not run learner code or grade mastery. Book ideas are editorial interpretations, with sources, rather than quotations.
 
 <details>
-<summary>More screenshots: notebook, focus timer and book reveal</summary>
+<summary>More screenshots: AI route, notebook, focus timer and book reveal</summary>
+
+**AI route, Ink theme.** Eight modules in order, followed by two shared API exercises.
+
+![Padipps AI track showing ten lessons and the LLM foundations starting point](docs/screenshots/ai-route.jpg)
 
 **Notebook, Violet theme.** A sample note marked Revisit, with zero practice attempts recorded.
 
@@ -59,9 +63,9 @@ The [hosted app](https://siddath.github.io/padipps/) supports practice, notes, f
 
 ## Choose your study material
 
-Open **Study packs → Preview engineering pack → Use this pack**. The included tracks cover DSA, backend engineering, distributed systems, AI application engineering, forward deployed engineering/customer delivery and product design. Some lessons belong to more than one track. See the [track guide](docs/STUDY_TRACKS.md) for counts, prerequisites and the fictional customer-delivery capstone, and [exercise materials](materials/engineering/) for unsolved starters.
+Open **Study packs → Preview engineering pack → Use this pack**. The included tracks cover DSA, backend engineering, distributed systems, AI application engineering, forward deployed engineering/customer delivery and product design. Follow the [eight-module AI route](docs/AI_ROUTE.md) from LLM foundations through a production capstone. Kafka consumer lag belongs to Distributed systems. Some lessons belong to more than one track. See the [track guide](docs/STUDY_TRACKS.md) for counts, prerequisites and the fictional customer-delivery capstone, and [exercise materials](materials/engineering/) for unsolved starters.
 
-The original three-lesson starter stays available. Switching packs preserves its records. To create another subject, download the current pack as a template, edit its JSON, then import and preview it before choosing **Use this pack**. [PACKS.md](PACKS.md) documents lesson fields, validation and extension rules.
+The original three-lesson starter and [previous 31-lesson engineering pack](packs/engineering-v1.json) stay available. Switching packs preserves its records. To create another subject, download the current pack as a template, edit its JSON, then import and preview it before choosing **Use this pack**. [PACKS.md](PACKS.md) documents lesson fields, validation and extension rules.
 
 Keep copies of the exact pack files you use. Backups belong to a pack ID and SHA-256 content fingerprint; even an editorial change creates a separate revision. Switching revisions does not merge histories. Import validation checks structure and safe links, not teaching accuracy.
 

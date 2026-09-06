@@ -1,10 +1,11 @@
 # Application screenshots
 
-These are unedited browser captures of Padipps 0.2.0, app revision `5b45173988a447e082a812a02e7a0257af0d47fa`, taken on 6 September 2026. They show the public application running on a separate local port with chat disabled. The browser's default viewport was 1280 × 720; no device emulation or screenshot compositing was used.
+These are unedited browser captures taken on 6 September 2026. Practice and AI route show Padipps 0.3.0, app revision `f9a74d223277bbb354409a439d058833b359b717`. Notebook, focus room and study shelf retain their 0.2.0 captures from `5b45173988a447e082a812a02e7a0257af0d47fa`; those interfaces are unchanged in 0.3.0. They show the public application running on a separate local port with chat disabled. The browser's default viewport was 1280 × 720; no device emulation or screenshot compositing was used.
 
 | Image | Visible state |
 | --- | --- |
-| [Practice library](practice.jpg) | Engineering pack selected; 31 lessons, six overlapping track filters; Ink theme. |
+| [Practice library](practice.jpg) | Engineering pack selected; 40 lessons, six overlapping track filters; Ink theme. |
+| [AI route](ai-route.jpg) | AI filter selected; eight ordered modules plus two shared exercises; Ink theme. |
 | [Notebook](notebook.jpg) | One sample note titled “Demo note: plan the next study block”, marked Revisit; zero recorded attempts; Violet theme. |
 | [Focus room](focus.jpg) | Short break ready to start following a five-second QA timer; Sand theme. |
 | [Study shelf](shelf.jpg) | One book labelled “QA timer check”, its five-second duration and a source-linked editorial reflection; Sand theme. |

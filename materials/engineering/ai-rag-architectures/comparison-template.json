@@ -1,0 +1,10 @@
+{
+  "fixture_hash": null,
+  "schema_hash": null,
+  "neo4j_version": null,
+  "package_versions": null,
+  "vanilla": {"status": "not_run", "results": null},
+  "graph": {"status": "not_run", "results": null},
+  "revocation_replay": {"status": "not_run", "results": null},
+  "injection_case": {"status": "not_run", "results": null}
+}

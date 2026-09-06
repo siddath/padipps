@@ -1,0 +1,44 @@
+[
+  {
+    "id": "direct-1",
+    "slice": "direct",
+    "principal": {"tenant": "cedar", "roles": ["planner"]},
+    "question": "Which depot is C-17 assigned to?",
+    "relevant_source_ids": ["cedar-vehicle-17"]
+  },
+  {
+    "id": "multi-1",
+    "slice": "multi_hop",
+    "principal": {"tenant": "cedar", "roles": ["mechanic"]},
+    "question": "Which bulletin applies to a component installed on C-17?",
+    "relevant_source_ids": ["cedar-vehicle-17", "cedar-bulletin-b9"]
+  },
+  {
+    "id": "multi-2",
+    "slice": "multi_hop",
+    "principal": {"tenant": "cedar", "roles": ["mechanic"]},
+    "question": "Was the B-9 inspection recorded for C-17?",
+    "relevant_source_ids": ["cedar-vehicle-17", "cedar-bulletin-b9", "cedar-maintenance-m2"]
+  },
+  {
+    "id": "permission-1",
+    "slice": "permission",
+    "principal": {"tenant": "cedar", "roles": ["planner"]},
+    "question": "What instruction does bulletin B-9 contain?",
+    "relevant_source_ids": []
+  },
+  {
+    "id": "permission-2",
+    "slice": "permission",
+    "principal": {"tenant": "cedar", "roles": ["mechanic"]},
+    "question": "When is the North Depot heavy-service window?",
+    "relevant_source_ids": []
+  },
+  {
+    "id": "unknown-1",
+    "slice": "unanswerable",
+    "principal": {"tenant": "cedar", "roles": ["mechanic"]},
+    "question": "Who manufactured TC-4?",
+    "relevant_source_ids": []
+  }
+]

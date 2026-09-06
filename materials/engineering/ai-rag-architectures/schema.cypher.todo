@@ -1,0 +1,8 @@
+// UNSOLVED learner checklist. Add executable Cypher only in your own implementation.
+// TODO define uniqueness constraints for stable domain IDs and source identity/version.
+// TODO define indexes needed by the measured vanilla and graph retrieval queries.
+// TODO write idempotent, parameterized upserts; never interpolate question or source text.
+// TODO preserve source_id and source_version on every derived relationship and property.
+// TODO define replacement/revocation cleanup so stale derived facts cannot be served.
+// TODO bound traversal depth, fan-out, returned records, elapsed time, and tenant scope.
+

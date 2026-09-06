@@ -1,0 +1,38 @@
+[
+  {
+    "id": "aurora-handbook",
+    "version": "2026-04-12",
+    "title": "Aurora workshop handbook",
+    "text": "Aurora Workshop holds repair clinics on Tuesday and Thursday. Members book one twenty-minute bench slot. Safety glasses are stored beside the blue cabinet, and every visitor must wear them while a tool is running."
+  },
+  {
+    "id": "oriole-release",
+    "version": "2026-05-03",
+    "title": "Oriole release note",
+    "text": "Oriole 4.2 adds CSV export for garden observations. Exports keep the observation timestamp and plot code. The fictional release retires the old semicolon format on 30 June 2026."
+  },
+  {
+    "id": "juniper-support",
+    "version": "2026-05-18",
+    "title": "Juniper support guide",
+    "text": "Juniper support is staffed from 08:00 to 16:00 UTC on weekdays. A missing shipment needs the order code and dispatch date. Billing questions use a separate queue and should not include card details."
+  },
+  {
+    "id": "kestrel-security",
+    "version": "2026-03-21",
+    "title": "Kestrel access policy",
+    "text": "Kestrel workspaces expire guest links after seven days. Owners may revoke a link earlier. The audit entry records the workspace, link identifier, actor, and revocation time."
+  },
+  {
+    "id": "wren-pricing",
+    "version": "2026-04-28",
+    "title": "Wren fictional plan sheet",
+    "text": "The Wren Seed plan includes three project boards. The Wren Grove plan includes twelve boards and weekly export. All names and plan details in this fixture are fictional."
+  },
+  {
+    "id": "sparrow-runbook",
+    "version": "2026-05-09",
+    "title": "Sparrow queue runbook",
+    "text": "When the Sparrow queue age exceeds ten minutes, check worker health before increasing concurrency. If workers are unhealthy, page the fictional on-call role and preserve the failed job IDs for replay."
+  }
+]
