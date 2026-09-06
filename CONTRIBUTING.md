@@ -13,7 +13,7 @@ Contribute a bounded improvement that helps a learner begin, understand, practis
 
 For README images, follow the [screenshot capture and review procedure](docs/screenshots/README.md). Only reviewed demo captures belong in documentation.
 
-Keep the three-lesson starter stable unless a deliberate content revision is intended. New engineering material belongs in its own pack revision. A pack fingerprint selects a separate notebook; document that consequence instead of silently migrating progress.
+Keep this repository focused on the reusable app and its small fictional schema sample. Author curricula and exercise materials in a separate repository under your own access policy. A pack fingerprint selects a separate notebook; document that consequence instead of silently migrating progress. Do not add private repository links or learner exports to examples, fixtures or screenshots.
 
 AI connection changes need explicit local opt-in, a provider with no executable tools, no browser credentials, bounded requests, failure recovery and independent review. Do not add a public proxy or shared API key as a convenience. GitHub Actions uses synthetic tests and must never require a contributor's Codex auth.
 

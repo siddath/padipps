@@ -1,8 +1,0 @@
-{
-  "scope": "fictional public test material; not credentials",
-  "body": "{\"team_id\":\"T_ASTER_FIXTURE\",\"event_id\":\"event-1\"}",
-  "timestamp": "1000000",
-  "now": 1000000,
-  "fictional_key": "fixture-only-never-deploy",
-  "signature": "v0=e038290ca6ca1120885f2b53a6111717e9d98ae63ba6674e6bc7d34630511996"
-}

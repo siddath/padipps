@@ -1,2 +1,0 @@
-{{- fail "Unsolved starter: independently implement the local workload, service, probes and configuration before rendering." -}}
-# TODO: replace this guard only after authoring and reviewing your local manifests.

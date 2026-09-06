@@ -1,11 +1,27 @@
 {
   "name": "padipps",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "description": "A local-first study notebook, practice loop and Pomodoro bookshelf, with portable study packs.",
   "license": "MIT",
-  "engines": {"node": ">=20"},
-  "exports": {"./study": "./engine.js", "./focus": "./focus-engine.js", "./packs": "./pack-engine.js", "./reflections": "./reflections.js"},
-  "scripts": {"start": "node server.mjs", "chat": "node server.mjs --codex", "test": "node --test tests/*.test.mjs", "check": "node scripts/check.mjs", "audit:publication": "node scripts/audit-publication.mjs", "build": "node scripts/build.mjs"}
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    "./study": "./engine.js",
+    "./focus": "./focus-engine.js",
+    "./packs": "./pack-engine.js",
+    "./reflections": "./reflections.js"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "chat": "node server.mjs --codex",
+    "test": "node --test tests/*.test.mjs",
+    "check": "node scripts/check.mjs",
+    "audit:publication": "node scripts/audit-publication.mjs",
+    "build": "node scripts/build.mjs",
+    "validate:pack": "node scripts/validate-pack.mjs",
+    "build:pack": "node scripts/build-pack.mjs"
+  }
 }

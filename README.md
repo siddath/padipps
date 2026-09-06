@@ -4,48 +4,30 @@ Padipps is a study app for practising concepts, keeping lesson notes and running
 
 Your work stays in your browser. Optional tutoring connects to your own Codex account on your computer. The name is inspired by colloquial Tamil around studying.
 
-[Try Padipps](https://siddath.github.io/padipps/) · [Study tracks](docs/STUDY_TRACKS.md) · [Create a pack](PACKS.md) · [Codex setup](docs/CODEX.md)
+[Try Padipps](https://siddath.github.io/padipps/) · [Bring your repository](docs/CONTENT_PIPELINE.md) · [Create a pack](PACKS.md) · [Codex setup](docs/CODEX.md)
 
-![Padipps practice library in the Ink theme, with 40 lessons and six track filters](docs/screenshots/practice.jpg)
+![Padipps practice library with one fictional observation sample in the Ink theme](docs/screenshots/sample.jpg)
 
-*The running app with the engineering pack selected. Screenshots use an isolated demo session; no personal study records or account details appear. [Capture details](docs/screenshots/README.md).*
+*The actual application with its fictional format example. [Capture details](docs/screenshots/README.md).*
 
 ## Features
 
 | Feature | What you can do |
 | --- | --- |
 | Guided practice | Recognise the problem, work through a small model and trace, explain it back, then attempt an independent task. Record an outcome, evidence and a review date. |
-| Study library | Start with three lessons or select the optional engineering pack: 40 lessons across six overlapping tracks, including an eight-module AI route and a Kafka consumer-lag lesson. Filter by track and search within it. |
+| Your study library | Import your own curriculum, filter its tracks and search its lessons. The app includes one fictional observation sample to demonstrate the format. |
 | Notebook | Link notes to lessons, search them, mark them Open, Revisit or Resolved, and inspect up to 20 previous versions. Drafts save as you type. |
 | Focus timer | Configure focus, short-break and long-break intervals. Pause, resume or reload without losing the timer. Start each interval yourself. |
 | Study shelf | Reveal a book after a finished focus timer. Choose philosophy, art or spirituality ideas with source links and reflection questions, or turn ideas off. |
 | Appearance | Choose Ink, Sand, Midnight, Violet, Rose or Graphite; collapse the sidebar; use GSAP transitions with system or manual reduced motion. |
 | Lesson conversations | Use Explain, Quiz me or Check my understanding. Each lesson has saved messages and drafts, Stop/Retry, and Markdown/JSON conversation archives. In-app answers require the optional local Codex connection. |
+| Local content pipeline | Build a validated JSON pack from two files in a repository you control. Import and preview it yourself; repository authentication stays in your Git tools. |
 | Portable study packs | Preview and import data-only JSON packs for your own subjects. Each pack revision keeps its own notebook, focus and conversation history. |
 | Backups | Export notebook Markdown for an editor or Obsidian, restore notebook JSON, and export/restore focus records through their separate backup controls. |
 
 Practice outcomes are self-reported. A completed timer records elapsed time; it does not establish attention or understanding. The app does not run learner code or grade mastery. Book ideas are editorial interpretations, with sources, rather than quotations.
 
-<details>
-<summary>More screenshots: AI route, notebook, focus timer and book reveal</summary>
-
-**AI route, Ink theme.** Eight modules in order, followed by two shared API exercises.
-
-![Padipps AI track showing ten lessons and the LLM foundations starting point](docs/screenshots/ai-route.jpg)
-
-**Notebook, Violet theme.** A sample note marked Revisit, with zero practice attempts recorded.
-
-![Padipps notebook with a labelled demo note, Revisit status and Markdown export](docs/screenshots/notebook.jpg)
-
-**Focus room, Sand theme.** A short break ready to start after a five-second QA timer.
-
-![Padipps focus room showing a five-minute short break and book illustration](docs/screenshots/focus.jpg)
-
-**Study shelf, Sand theme.** The QA book opens a reflection on Epictetus with a source link. This is a test reward, not a learner achievement.
-
-![Padipps study shelf showing a five-second QA book and a source-linked reflection](docs/screenshots/shelf.jpg)
-
-</details>
+![Padipps Study packs screen for importing material from your own repository](docs/screenshots/import.jpg)
 
 ## Run locally
 
@@ -63,9 +45,11 @@ The [hosted app](https://siddath.github.io/padipps/) supports practice, notes, f
 
 ## Choose your study material
 
-Open **Study packs → Preview engineering pack → Use this pack**. The included tracks cover DSA, backend engineering, distributed systems, AI application engineering, forward deployed engineering/customer delivery and product design. Follow the [eight-module AI route](docs/AI_ROUTE.md) from LLM foundations through a production capstone. Kafka consumer lag belongs to Distributed systems. Some lessons belong to more than one track. See the [track guide](docs/STUDY_TRACKS.md) for counts, prerequisites and the fictional customer-delivery capstone, and [exercise materials](materials/engineering/) for unsolved starters.
+Keep your curriculum in a separate repository you control. Open **Study packs → Import study pack JSON**, select a pack, inspect the preview and choose **Use this pack**. The included fictional sample demonstrates the lesson format; no engineering curriculum or exercise collection is bundled.
 
-The original three-lesson starter and [previous 31-lesson engineering pack](packs/engineering-v1.json) stay available. Switching packs preserves its records. To create another subject, download the current pack as a template, edit its JSON, then import and preview it before choosing **Use this pack**. [PACKS.md](PACKS.md) documents lesson fields, validation and extension rules.
+The [local content pipeline](docs/CONTENT_PIPELINE.md) builds a pack from `pack.json` metadata and `sessions.json` lesson data. Use your own converter for Markdown or CMS sources, validate its output, then import the JSON. Padipps does not clone repositories, store GitHub credentials, fetch private files or automatically synchronize changes. [PACKS.md](PACKS.md) documents the schema and extension rules.
+
+Earlier releases intentionally included generic engineering material. It has been removed from the current tree and website; historical commits, forks and downloaded copies remain public. New private curriculum must stay outside this repository. Existing imported packs remain in browser storage. To reopen a former built-in pack's records, import your retained exact old pack JSON at the same browser origin.
 
 Keep copies of the exact pack files you use. Backups belong to a pack ID and SHA-256 content fingerprint; even an editorial change creates a separate revision. Switching revisions does not merge histories. Import validation checks structure and safe links, not teaching accuracy.
 
@@ -108,7 +92,7 @@ npm run build
 
 Use a disposable port and `?qa#today` for interface checks. QA has separate record storage and a five-second timer; its entries are test data. GitHub Actions runs the checks and publishes the static asset allowlist from the default branch without model credentials.
 
-Read [contribution guidance](CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md), [testing](docs/TESTING.md) and [security reporting](SECURITY.md). Pack authoring tools, accessible sound controls and opt-in sync are possible contributions, not features in this release.
+Read [contribution guidance](CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md), [testing](docs/TESTING.md) and [security reporting](SECURITY.md). Markdown/CMS converters, accessible sound controls and opt-in sync are possible contributions; they are not included in this release.
 
 ## Contact and license
 

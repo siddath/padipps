@@ -1,18 +1,8 @@
 {
-  "docs/screenshots/focus.jpg": [
-    "6a16d0e11e209864295206198531240d6af1b709f402a1189a51aac88cb78a54"
+  "docs/screenshots/sample.jpg": [
+    "e06bd6c3f2326166ce6f5d7d303de98d6cee1b33546d54e77d054a16f0b06828"
   ],
-  "docs/screenshots/notebook.jpg": [
-    "c5a88b859fda3329f4de8ae375245cce6eea35886b86278a6c4c471caf415343"
-  ],
-  "docs/screenshots/practice.jpg": [
-    "8a8a32fef0bd64ef1ea5465840448b74cf49c65ef2bd6ad6d443c7ea4d45efe5",
-    "cbe9cd303223238020f35939f4db6ad8266cb9431dd8188a37f03edfa0988aef"
-  ],
-  "docs/screenshots/shelf.jpg": [
-    "ed8c5884835b2af060282f7b9d0b5b1fe5eda474be4f517f1d4d9b0bdc6a692f"
-  ],
-  "docs/screenshots/ai-route.jpg": [
-    "49d4661378b211169687a5feb44941077e5d053882ffbb7ed6f01ee5dd063fac"
+  "docs/screenshots/import.jpg": [
+    "a7b65cdb54eb3973371ca84cdaa246221935f9ef4d8d73fa4e5b784a990ada14"
   ]
 }

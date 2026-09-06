@@ -56,11 +56,13 @@ function publicContacts(policy){
 async function main(){
   const publicContactEmails=publicContacts(JSON.parse(await readFile(path.join(root,'publication-policy.json'),'utf8')));
   const screenshots=JSON.parse(await readFile(path.join(root,'docs/screenshots/reviewed-images.json'),'utf8'));
+  const historicalScreenshots=JSON.parse(await readFile(path.join(root,'docs/screenshots/historical-images.json'),'utf8'));
+  const allScreenshots=Object.fromEntries([...new Set([...Object.keys(screenshots),...Object.keys(historicalScreenshots)])].map(file=>[file,[...(screenshots[file]||[]),...(historicalScreenshots[file]||[])]]));
   const findings=[],seen=new Set();let files=0,blobs=0,commits=0;
   const inspect=(file,buffer,revision)=>{
     files++;
     for(const item of inspectPath(file))findings.push({file,...item,...(revision?{revision}:{})});
-    if(reviewedScreenshot(file,buffer,screenshots))return;
+    if(reviewedScreenshot(file,buffer,revision?allScreenshots:screenshots))return;
     if(buffer.includes(0)){
       if(!file.endsWith('.webp'))findings.push({file,rule:'unreviewed-binary',line:0});
       else if(['EXIF','XMP ','ICCP'].some(tag=>buffer.includes(Buffer.from(tag))))findings.push({file,rule:'image-metadata-needs-review',line:0});

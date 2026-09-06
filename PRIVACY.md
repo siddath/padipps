@@ -1,6 +1,6 @@
 # Privacy and data flow
 
-Padipps stores learning records in your browser. Optional local tutoring uses your own Codex sign-in after explicit startup and Send. This repository contains reusable software and fictional study material, not a shared account or learner database.
+Padipps stores learning records in your browser. Optional local tutoring uses your own Codex sign-in after explicit startup and Send. The current release contains reusable software and one fictional schema sample.
 
 ## What stays local
 
@@ -22,7 +22,11 @@ GitHub Pages serves only the static allowlist. It has no chat backend and no cre
 
 ## Publication boundary
 
-The repository includes original lessons, intentionally unsolved starter exercises and explicitly fictional fixtures. It excludes private teaching profiles, learner logs, personal records, private curriculum pointers, credentials, local provider settings and private Git history. Public contributor names/handles and retained upstream license attribution are ordinary public repository metadata.
+The current tree and static build contain no bundled study-track curriculum or exercise materials. Authors keep that content in their own repositories. This app has no link or authentication connection to a maintainer curriculum repository. Public contributor names/handles and retained upstream license attribution remain ordinary public repository metadata.
+
+Earlier releases intentionally published generic engineering lessons and fictional exercise fixtures. Removing those files from this release does not erase Git history, old commits, forks, clones or cached copies. We have not rewritten history and cannot describe previously published material as private. The new private curriculum must remain outside this public repository.
+
+Updating the app does not delete imported packs or learner records already in your browser. An imported pack continues to load. The former built-in starter has a different identity from the new sample: import your retained exact old JSON file to reopen its records. Keep the same host, port and browser profile, and retain notebook and focus backups.
 
 The maintainer has chosen to publish the contact address linked in the README, including its use in GitHub commit metadata. `publication-policy.json` records this exact opt-in; it does not authorize publishing other people's contact details, credentials, learner records or local configuration.
 

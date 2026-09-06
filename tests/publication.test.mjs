@@ -23,9 +23,9 @@ test('commit metadata permits only noreply or an explicitly public contact',()=>
 });
 test('publication boundary excludes local state, auth, archives and backend from static files',()=>{
  for(const file of ['.env','.codex/auth.json','backups/notebook.json','private-packs/course.json','photos.zip','account.key'])assert.ok(inspectPath(file).length,file);
- for(const file of ['README.md','materials/engineering/retry/starter.js','packs/engineering.json'])assert.equal(inspectPath(file).length,0,file);
+ for(const file of ['README.md','packs/starter.json'])assert.equal(inspectPath(file).length,0,file);
  assert.equal(new Set(STATIC_FILES).size,STATIC_FILES.length);
- assert.ok(BROWSER_ASSETS.includes('packs/engineering.json'));assert.ok(BROWSER_ASSETS.includes('chat-ui.js'));
+ assert.deepEqual(BROWSER_ASSETS.filter(file=>file.startsWith('packs/')),['packs/starter.json']);assert.ok(BROWSER_ASSETS.includes('chat-ui.js'));
  for(const file of STATIC_FILES){assert.equal(inspectPath(file).length,0,file);assert.equal(file.endsWith('.mjs'),false,file);assert.equal(file.startsWith('tests/'),false,file);assert.equal(file.includes('..'),false,file);}
 });
 

@@ -1,21 +1,16 @@
 # Application screenshots
 
-These are unedited browser captures taken on 6 September 2026. Practice and AI route show Padipps 0.3.0, app revision `f9a74d223277bbb354409a439d058833b359b717`. Notebook, focus room and study shelf retain their 0.2.0 captures from `5b45173988a447e082a812a02e7a0257af0d47fa`; those interfaces are unchanged in 0.3.0. They show the public application running on a separate local port with chat disabled. The browser's default viewport was 1280 × 720; no device emulation or screenshot compositing was used.
+These are actual browser captures of Padipps 0.4.0 taken on 6 September 2026, using the public app on a separate local port with chat disabled. Each image is 1280 × 720 and shows the fictional sample, with no private curriculum, learner records or account details.
 
 | Image | Visible state |
 | --- | --- |
-| [Practice library](practice.jpg) | Engineering pack selected; 40 lessons, six overlapping track filters; Ink theme. |
-| [AI route](ai-route.jpg) | AI filter selected; eight ordered modules plus two shared exercises; Ink theme. |
-| [Notebook](notebook.jpg) | One sample note titled “Demo note: plan the next study block”, marked Revisit; zero recorded attempts; Violet theme. |
-| [Focus room](focus.jpg) | Short break ready to start following a five-second QA timer; Sand theme. |
-| [Study shelf](shelf.jpg) | One book labelled “QA timer check”, its five-second duration and a source-linked editorial reflection; Sand theme. |
+| [Practice library](sample.jpg) | One fictional observation lesson, one sample track, Ink theme. |
+| [Study packs](import.jpg) | Current sample identity and the import entry point for user-owned material. |
 
-The notebook entry and timer receipt are synthetic demonstration data created through the interface in a `?qa` session. They are not personal notes, study evidence or claims of learning. No model conversation, account details, private connections or credentials were used in these captures. The book illustration is part of the shipped app; its provenance is in [third-party notices](../../THIRD_PARTY_LICENSES.md).
+Both images were inspected for visible private text and metadata. They contain JPEG/JFIF image data with no EXIF, XMP, ICC or comment metadata. Current hashes are recorded in [reviewed-images.json](reviewed-images.json). The separate [historical-images.json](historical-images.json) retains previously reviewed hashes solely so publication checks can inspect reachable Git history; those older images are removed from the current tree.
 
 ## Updating the images
 
-Use the public app on a disposable port with `?qa`. Interact through the visible interface and label sample records. Capture the page itself, excluding desktop windows, account menus and browser chrome. Keep screenshots faithful to the shipped UI; do not generate a mockup or fill in model answers.
+Use the public app on a disposable port with `?qa`. Interact through the visible interface. Capture the page itself, excluding desktop windows, account menus and browser chrome. Use only fictional sample content and label any demonstration records. Do not generate a mockup or insert model answers.
 
-Before committing, inspect every image for private text and check metadata. These JPEGs contain a standard JFIF header and image segments, with no EXIF, XMP, ICC or comment segments. Their exact SHA-256 hashes are recorded in [reviewed-images.json](reviewed-images.json). The publication guard admits only matching bytes at the recorded screenshot paths. A changed image needs another manual review and a new hash; retain reviewed older hashes when they remain in Git history. Hash approval records the review, but cannot inspect pixels or prove privacy by itself.
-
-Run the publication audit and verify that the images render in GitHub's README. Screenshots are repository documentation and are excluded from the static app build.
+Inspect every changed image and its metadata before updating its hash. Hash approval records a manual review; it cannot inspect pixels or prove privacy by itself. Stage intended additions and deletions, run the publication audit, and verify that README image links resolve. Screenshots are repository documentation and are excluded from the static app build.

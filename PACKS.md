@@ -1,6 +1,6 @@
 # Study pack format
 
-The included [engineering pack](packs/engineering.json) provides 40 lessons across six tracks. Preview it from **Study packs**; selection is explicit and its records stay separate from the original starter. The previous 31-lesson [engineering-v1 pack](packs/engineering-v1.json) remains available for reopening its records. See the [track guide](docs/STUDY_TRACKS.md) for prerequisites and exercise materials.
+Keep your curriculum in a repository or folder you control. This public app includes one fictional observation sample to demonstrate the schema. It bundles no engineering study tracks or exercise materials. See [the local content pipeline](docs/CONTENT_PIPELINE.md) for building, validating and importing your own pack.
 
 Start by downloading **Study packs → Download current pack** or copying [`packs/starter.json`](packs/starter.json). The version 1 envelope is:
 
@@ -18,7 +18,7 @@ Start by downloading **Study packs → Download current pack** or copying [`pack
 }
 ```
 
-The envelope above is illustrative; an import needs at least one complete session. Copy a real session from the starter file to preserve its required fields.
+The envelope above is illustrative; an import needs at least one complete session. Copy the fictional sample session to preserve its required fields.
 
 | Field | Purpose |
 | --- | --- |
