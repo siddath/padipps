@@ -1,5 +1,10 @@
 # Changelog
 
+## Documentation update — 2026-09-06
+
+- Add four actual-app screenshots with labelled demo data, capture details and exact-byte publication checks.
+- Replace the README overview with a feature table and clarify local tutoring, storage, pack revisions and release limits.
+
 ## 0.2.0 — 2026-09-06
 
 - Add an optional engineering pack: 31 lessons, six tracks and 96 exercise/material files. The original starter pack and its record identity stay unchanged.
