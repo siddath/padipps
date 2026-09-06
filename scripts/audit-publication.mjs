@@ -1,5 +1,6 @@
 /** Redacted pre-publication checks. These are guardrails, not a secret-free certification. */
 import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {readFile, lstat} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
@@ -37,6 +38,14 @@ export function publicCommitEmail(email, publicContactEmails=[]){
     || publicContactEmails.includes(email);
 }
 
+// Hashes record a manual pixel and metadata review, not an automated privacy guarantee.
+export function reviewedScreenshot(file, buffer, manifest={}){
+  return /^docs\/screenshots\/[a-z0-9-]+\.jpg$/.test(file)
+    && buffer[0]===0xff && buffer[1]===0xd8 && buffer[2]===0xff
+    && Array.isArray(manifest[file])
+    && manifest[file].includes(createHash('sha256').update(buffer).digest('hex'));
+}
+
 function publicContacts(policy){
   if(!policy||Object.keys(policy).length!==1||!Array.isArray(policy.publicContactEmails)
     ||policy.publicContactEmails.some(email=>typeof email!=='string'||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)))
@@ -46,10 +55,12 @@ function publicContacts(policy){
 
 async function main(){
   const publicContactEmails=publicContacts(JSON.parse(await readFile(path.join(root,'publication-policy.json'),'utf8')));
+  const screenshots=JSON.parse(await readFile(path.join(root,'docs/screenshots/reviewed-images.json'),'utf8'));
   const findings=[],seen=new Set();let files=0,blobs=0,commits=0;
   const inspect=(file,buffer,revision)=>{
     files++;
     for(const item of inspectPath(file))findings.push({file,...item,...(revision?{revision}:{})});
+    if(reviewedScreenshot(file,buffer,screenshots))return;
     if(buffer.includes(0)){
       if(!file.endsWith('.webp'))findings.push({file,rule:'unreviewed-binary',line:0});
       else if(['EXIF','XMP ','ICCP'].some(tag=>buffer.includes(Buffer.from(tag))))findings.push({file,rule:'image-metadata-needs-review',line:0});

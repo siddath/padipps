@@ -1,6 +1,7 @@
 import test from 'node:test';
+import {readFileSync} from 'node:fs';
 import assert from 'node:assert/strict';
-import {inspectText,inspectPath,publicCommitEmail} from '../scripts/audit-publication.mjs';
+import {inspectText,inspectPath,publicCommitEmail,reviewedScreenshot} from '../scripts/audit-publication.mjs';
 import {BROWSER_ASSETS,STATIC_FILES} from '../public-assets.mjs';
 
 test('publication guard detects secrets without returning their values',()=>{
@@ -26,4 +27,18 @@ test('publication boundary excludes local state, auth, archives and backend from
  assert.equal(new Set(STATIC_FILES).size,STATIC_FILES.length);
  assert.ok(BROWSER_ASSETS.includes('packs/engineering.json'));assert.ok(BROWSER_ASSETS.includes('chat-ui.js'));
  for(const file of STATIC_FILES){assert.equal(inspectPath(file).length,0,file);assert.equal(file.endsWith('.mjs'),false,file);assert.equal(file.startsWith('tests/'),false,file);assert.equal(file.includes('..'),false,file);}
+});
+
+test('only exact manually reviewed screenshot bytes and paths are admitted',()=>{
+ const manifest=JSON.parse(readFileSync(new URL('../docs/screenshots/reviewed-images.json',import.meta.url)));
+ for(const file of Object.keys(manifest)){
+  const bytes=readFileSync(new URL('../'+file,import.meta.url));
+  assert.equal(reviewedScreenshot(file,bytes,manifest),true,file);
+  const changed=Buffer.from(bytes);changed[changed.length-1]^=1;
+  assert.equal(reviewedScreenshot(file,changed,manifest),false);
+  assert.equal(reviewedScreenshot(file,Buffer.concat([bytes,Buffer.from('private metadata')]),manifest),false);
+  assert.equal(reviewedScreenshot('assets/renamed.jpg',bytes,manifest),false);
+  assert.equal(reviewedScreenshot(file,bytes,{}),false);
+  assert.equal(reviewedScreenshot('docs/screenshots/../private.jpg',bytes,manifest),false);
+ }
 });

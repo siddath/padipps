@@ -11,6 +11,8 @@ Contribute a bounded improvement that helps a learner begin, understand, practis
 5. Check changed flows at desktop and narrow widths, with keyboard and reduced motion. Use `?qa` so test records stay separate.
 6. Review files, Git history and the static asset list. Use the GitHub noreply address shown in your account's email settings. Keep secrets, personal exports, local settings, logs and screenshots of real records out of commits.
 
+For README images, follow the [screenshot capture and review procedure](docs/screenshots/README.md). Only reviewed demo captures belong in documentation.
+
 Keep the three-lesson starter stable unless a deliberate content revision is intended. New engineering material belongs in its own pack revision. A pack fingerprint selects a separate notebook; document that consequence instead of silently migrating progress.
 
 AI connection changes need explicit local opt-in, a provider with no executable tools, no browser credentials, bounded requests, failure recovery and independent review. Do not add a public proxy or shared API key as a convenience. GitHub Actions uses synthetic tests and must never require a contributor's Codex auth.
