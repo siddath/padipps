@@ -1,0 +1,38 @@
+[
+  {
+    "id": "h1",
+    "question": "What must be checked before L-17 runs?",
+    "required_metadata": {"tenant": "north", "status": "published"},
+    "relevance_grades": {"lark-ops-17": 3}
+  },
+  {
+    "id": "h2",
+    "question": "At what queue age does the severe Tern alarm begin?",
+    "required_metadata": {"tenant": "north", "status": "published"},
+    "relevance_grades": {"tern-alerts": 3}
+  },
+  {
+    "id": "h3",
+    "question": "Decode Finch F7 and identify the related maintenance record fields.",
+    "required_metadata": {"tenant": "north", "status": "published"},
+    "relevance_grades": {"finch-code-f7": 3, "finch-maintenance": 2}
+  },
+  {
+    "id": "h4",
+    "question": "When is the east Ibis maintenance window?",
+    "required_metadata": {"tenant": "north", "status": "published"},
+    "relevance_grades": {"ibis-regional": 3}
+  },
+  {
+    "id": "h5",
+    "question": "What does Wagtail burn mean?",
+    "required_metadata": {"tenant": "north", "status": "published"},
+    "relevance_grades": {"wagtail-glossary": 3}
+  },
+  {
+    "id": "h6",
+    "question": "Has the Lark checksum field already been renamed?",
+    "required_metadata": {"tenant": "north", "status": "published"},
+    "relevance_grades": {"lark-ops-17": 1}
+  }
+]

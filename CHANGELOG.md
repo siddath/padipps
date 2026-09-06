@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 — 2026-09-06
+
+- Expand the engineering pack to 40 lessons with eight ordered AI modules and a Kafka consumer-lag lesson in Distributed systems.
+- Keep the previous 31-lesson pack byte-for-byte, with an explicit preview option for reopening its notebooks. New pack selection creates separate histories.
+- Add original teaching material and unsolved framework/capstone exercises; retain the existing FDE route and shared lessons.
+
 ## Documentation update — 2026-09-06
 
 - Add four actual-app screenshots with labelled demo data, capture details and exact-byte publication checks.

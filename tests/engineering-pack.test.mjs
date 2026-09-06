@@ -26,15 +26,15 @@ function filesBelow(folder) {
   });
 }
 
-test('engineering pack validates with 31 sessions and six explicit tracks', () => {
+test('engineering pack validates with 40 sessions and six explicit tracks', () => {
   assert.equal(parsed.ok, true, parsed.errors?.join('\n'));
-  assert.equal(pack.id, 'engineering-v1');
+  assert.equal(pack.id, 'engineering-v2');
   assert.equal(pack.firstSession, 'customer-discovery');
-  assert.equal(pack.sessions.length, 31);
+  assert.equal(pack.sessions.length, 40);
   assert.deepEqual(pack.tracks.map(track => [track.id, track.sessionIds.length]), [
-    ['dsa', 9], ['backend', 3], ['distributed', 4], ['ai', 2], ['fde', 21], ['design', 3]
+    ['dsa', 9], ['backend', 3], ['distributed', 5], ['ai', 10], ['fde', 21], ['design', 3]
   ]);
-  assert.equal(new Set(pack.tracks.flatMap(track => track.sessionIds)).size, 31);
+  assert.equal(new Set(pack.tracks.flatMap(track => track.sessionIds)).size, 40);
   assert.deepEqual(new Set(pack.sessions.map(session => session.home)), new Set(['engineering', 'product-design']));
 });
 
@@ -107,9 +107,9 @@ test('public pack and materials contain no private source fields or workspace ma
     .map(path => readFileSync(path, 'utf8'))
     .join('\n');
   const candidate = `${packText}\n${materials}`;
-  assert.doesNotMatch(candidate, /_[Dd]ocs\b|\b[a-z]+-hq\b|\b[A-Z][a-z]+-Planner\b|TEACHING_[A-Z]+\b|\b[A-Z]{2,}-school\b|\/Users\/|private (?:execution brief|study desk)|Lab (?:attempt|session)/);
-  assert.doesNotMatch(candidate, /"(?:canon|exercise)"\s*:/);
-  assert.doesNotMatch(candidate, /AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/);
+  assert.equal(/_[Dd]ocs\b|\b[a-z]+-hq\b|\b[A-Z][a-z]+-Planner\b|TEACHING_[A-Z]+\b|\b[A-Z]{2,}-school\b|\/Users\/|private (?:execution brief|study desk)|Lab (?:attempt|session)/.test(candidate), false, 'Public content contains a private-source marker.');
+  assert.equal(/"(?:canon|exercise)"\s*:/.test(candidate), false, 'Public content contains a private source field.');
+  assert.equal(/AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{30,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/.test(candidate), false, 'Public content contains a credential pattern; use the redacted publication audit.');
 
   const publishedFiles = filesBelow(join(padipps, 'materials/engineering'));
   for (const path of publishedFiles) {

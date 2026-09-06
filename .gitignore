@@ -23,3 +23,6 @@ study-lab-focus*.json
 __pycache__/
 *.pyc
 *.class
+
+# Learner-created Python environments are local tooling, not study material.
+.venv/

@@ -1,6 +1,6 @@
 # Study pack format
 
-The included [engineering pack](packs/engineering.json) provides 31 lessons across six tracks. Preview it from **Study packs**; selection is explicit and its records stay separate from the original starter. See the [track guide](docs/STUDY_TRACKS.md) for prerequisites and exercise materials.
+The included [engineering pack](packs/engineering.json) provides 40 lessons across six tracks. Preview it from **Study packs**; selection is explicit and its records stay separate from the original starter. The previous 31-lesson [engineering-v1 pack](packs/engineering-v1.json) remains available for reopening its records. See the [track guide](docs/STUDY_TRACKS.md) for prerequisites and exercise materials.
 
 Start by downloading **Study packs → Download current pack** or copying [`packs/starter.json`](packs/starter.json). The version 1 envelope is:
 

@@ -1,0 +1,11 @@
+{
+  "system": "Classify the fictional incident. Return only the requested structured fields.",
+  "few_shot": {
+    "input": "The nightly export is ten minutes late but still running.",
+    "output": {
+      "severity": "low",
+      "summary": "Nightly export is delayed"
+    }
+  },
+  "user": "The checkout worker retried three times and stopped."
+}

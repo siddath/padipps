@@ -1,0 +1,11 @@
+{
+  "fixture_hash": null,
+  "k": null,
+  "configurations": [
+    {"name": "dense-baseline", "status": "not_run", "results": null},
+    {"name": "dense-multi-query", "status": "not_run", "results": null},
+    {"name": "dense-hyde", "status": "not_run", "results": null},
+    {"name": "dense-reranker", "status": "not_run", "results": null},
+    {"name": "hybrid-reranker", "status": "not_run", "results": null}
+  ]
+}
