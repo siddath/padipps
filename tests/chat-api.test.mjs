@@ -139,7 +139,15 @@ test('rate, concurrent, unavailable, oversized, and timeout failures return safe
   assert.equal((await call(unavailable, {body:validBody()})).res.statusCode, 503);
   const oversized = createStudyChatApi({provider:{status:async()=>({available:true}), complete:async()=>({reply:'x'.repeat(4_001), provider:'codex'})}});
   assert.equal((await call(oversized, {body:validBody()})).res.statusCode, 502);
-  const timedOut = createStudyChatApi({provider:{status:async()=>({available:true}), complete:async (_prompt, {signal})=>new Promise((_, reject)=>signal.addEventListener('abort', ()=>reject(new StudyChatProviderError('cancelled', 'aborted')), {once:true}))}, timeoutMs:5});
+  const timedOut = createStudyChatApi({provider:{status:async()=>({available:true}), complete:async (_prompt, {signal})=>new Promise((_, reject)=>{
+    // Model the active socket/process that keeps a real provider alive. Node 22
+    // exits an otherwise empty test loop before the API's unref'ed timer fires.
+    const watchdog = setTimeout(()=>reject(new Error('The API did not abort the synthetic provider.')), 1_000);
+    signal.addEventListener('abort', ()=>{
+      clearTimeout(watchdog);
+      reject(new StudyChatProviderError('cancelled', 'aborted'));
+    }, {once:true});
+  })}, timeoutMs:5});
   assert.equal((await call(timedOut, {body:validBody()})).res.statusCode, 504);
 });
 
