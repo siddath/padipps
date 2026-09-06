@@ -5,6 +5,9 @@
 - Expand the engineering pack to 40 lessons with eight ordered AI modules and a Kafka consumer-lag lesson in Distributed systems.
 - Keep the previous 31-lesson pack byte-for-byte, with an explicit preview option for reopening its notebooks. New pack selection creates separate histories.
 - Add original teaching material and unsolved framework/capstone exercises; retain the existing FDE route and shared lessons.
+- Refresh the practice screenshot and add an actual AI-route capture with reviewed metadata and exact-byte checks.
+
+Validation: 78 application tests, syntax and static build checks, publication scans of current files and reachable history, and independent content/privacy review. Real-interface checks covered all six filters, all nine new lesson entry points, AI and Kafka recognition/model gates, 375px layout, keyboard focus, manual reduced motion, and reopening the unchanged previous notebook. No learner exercise was solved or live framework, Kafka cluster, provider or deployment experiment run for these materials.
 
 ## Documentation update — 2026-09-06
 

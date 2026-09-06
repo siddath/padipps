@@ -6,7 +6,7 @@ Your work stays in your browser. Optional tutoring connects to your own Codex ac
 
 [Try Padipps](https://siddath.github.io/padipps/) · [Study tracks](docs/STUDY_TRACKS.md) · [Create a pack](PACKS.md) · [Codex setup](docs/CODEX.md)
 
-![Padipps practice library in the Ink theme, with 31 lessons and six track filters](docs/screenshots/practice.jpg)
+![Padipps practice library in the Ink theme, with 40 lessons and six track filters](docs/screenshots/practice.jpg)
 
 *The running app with the engineering pack selected. Screenshots use an isolated demo session; no personal study records or account details appear. [Capture details](docs/screenshots/README.md).*
 
@@ -27,7 +27,11 @@ Your work stays in your browser. Optional tutoring connects to your own Codex ac
 Practice outcomes are self-reported. A completed timer records elapsed time; it does not establish attention or understanding. The app does not run learner code or grade mastery. Book ideas are editorial interpretations, with sources, rather than quotations.
 
 <details>
-<summary>More screenshots: notebook, focus timer and book reveal</summary>
+<summary>More screenshots: AI route, notebook, focus timer and book reveal</summary>
+
+**AI route, Ink theme.** Eight modules in order, followed by two shared API exercises.
+
+![Padipps AI track showing ten lessons and the LLM foundations starting point](docs/screenshots/ai-route.jpg)
 
 **Notebook, Violet theme.** A sample note marked Revisit, with zero practice attempts recorded.
 
