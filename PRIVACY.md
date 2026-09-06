@@ -24,4 +24,6 @@ GitHub Pages serves only the static allowlist. It has no chat backend and no cre
 
 The repository includes original lessons, intentionally unsolved starter exercises and explicitly fictional fixtures. It excludes private teaching profiles, learner logs, personal records, private curriculum pointers, credentials, local provider settings and private Git history. Public contributor names/handles and retained upstream license attribution are ordinary public repository metadata.
 
+The maintainer has chosen to publish the contact address linked in the README, including its use in GitHub commit metadata. `publication-policy.json` records this exact opt-in; it does not authorize publishing other people's contact details, credentials, learner records or local configuration.
+
 Automated publication checks report file/rule/line findings without printing possible secret values. They are paired with manual content review and GitHub secret scanning/push protection; no finite scan proves that arbitrary future content contains no personal data. If something sensitive is accidentally committed, follow [SECURITY.md](SECURITY.md) and do not repost the value in a public issue.

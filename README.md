@@ -86,6 +86,10 @@ Useful next contributions: keyboard-tested pack authoring, accessible sound opti
 
 Read [contribution guidance](CONTRIBUTING.md), [architecture](docs/ARCHITECTURE.md), [testing](docs/TESTING.md) and [security reporting](SECURITY.md). GitHub Actions tests the repository and publishes only `dist/` from the default branch; no contributor credential is used by that workflow.
 
+## Contact
+
+For general questions or collaboration, contact [Siddath](mailto:siddath.raghavan@gmail.com). This address is intentionally public. Report vulnerabilities through the private channel in [SECURITY.md](SECURITY.md).
+
 ## License
 
 Padipps code and original educational writing use the [MIT license](LICENSE). GSAP is distributed under its separate Standard License. See [third-party notices](THIRD_PARTY_LICENSES.md) for animation, generated artwork and linked source provenance.

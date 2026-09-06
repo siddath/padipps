@@ -32,7 +32,20 @@ export function inspectText(text){
 
 export function inspectPath(file){return forbiddenPath.test(file)?[{rule:'private-or-unreviewed-file',line:0}]:[];}
 
+export function publicCommitEmail(email, publicContactEmails=[]){
+  return /(?:@(?:users\.)?noreply\.github\.com$|^noreply@github\.com$)/i.test(email)
+    || publicContactEmails.includes(email);
+}
+
+function publicContacts(policy){
+  if(!policy||Object.keys(policy).length!==1||!Array.isArray(policy.publicContactEmails)
+    ||policy.publicContactEmails.some(email=>typeof email!=='string'||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)))
+    throw new Error('publication-policy.json must contain only an explicit publicContactEmails array.');
+  return policy.publicContactEmails;
+}
+
 async function main(){
+  const publicContactEmails=publicContacts(JSON.parse(await readFile(path.join(root,'publication-policy.json'),'utf8')));
   const findings=[],seen=new Set();let files=0,blobs=0,commits=0;
   const inspect=(file,buffer,revision)=>{
     files++;
@@ -54,7 +67,7 @@ async function main(){
     const revisions=git('rev-list','--all').toString().trim().split('\n').filter(Boolean);commits=revisions.length;
     for(const revision of revisions){
       const emails=git('show','-s','--format=%ae%n%ce',revision).toString().trim().split('\n');
-      if(emails.some(email=>!/(?:@(?:users\.)?noreply\.github\.com$|^noreply@github\.com$)/i.test(email)))findings.push({file:'<commit metadata>',revision,rule:'non-noreply-author-email',line:0});
+      if(emails.some(email=>!publicCommitEmail(email,publicContactEmails)))findings.push({file:'<commit metadata>',revision,rule:'unapproved-contact-email',line:0});
       for(const entry of git('ls-tree','-r','-z',revision).toString().split('\0').filter(Boolean)){
         const [header,file]=entry.split('\t');const [mode,type,oid]=header.split(' ');
         if(type!=='blob'||mode!=='100644'&&mode!=='100755'){findings.push({file,revision,rule:'linked-or-special-history-entry',line:0});continue;}

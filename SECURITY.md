@@ -10,7 +10,7 @@ Use [GitHub private vulnerability reporting](https://github.com/siddath/padipps/
 
 The current release uses a fixed Codex CLI version and model, explicit local opt-in, isolated startup context, disabled executable tools, strict event parsing and same-origin request validation. Unsupported CLI versions fail closed. A provider or platform update needs new isolation, cancellation and failure-path verification. Standard study features remain usable without an AI connection.
 
-Enable GitHub secret scanning and push protection on forks. Use a GitHub noreply commit email. Before pushing, run the publication audit against files and reachable history, inspect the diff, and check that `dist/` contains only allowlisted browser assets. A key added and later deleted can remain in history. Rotate a leaked credential through its issuing provider and coordinate history remediation; deleting its latest copy is not sufficient.
+Enable GitHub secret scanning and push protection on forks. Use a GitHub noreply commit email unless you explicitly choose a public contact address. `publication-policy.json` permits only exact, owner-approved public contact addresses in commit metadata; adding someone else's address requires their consent. All credential, private-file and learner-data checks still apply. Before pushing, run the publication audit against files and reachable history, inspect the diff, and check that `dist/` contains only allowlisted browser assets. A key added and later deleted can remain in history. Rotate a leaked credential through its issuing provider and coordinate history remediation; deleting its latest copy is not sufficient.
 
 ## Verification limits
 

@@ -8,4 +8,6 @@
 - Add privacy, security, architecture, contribution, setup and testing documentation.
 - Publish only explicit browser assets through GitHub Pages. Add automated publication checks and pin workflow actions to reviewed revisions.
 
-Validation: 72 automated tests, syntax and build checks, current-file and reachable-history publication scans, six-track browser checks, pack/conversation isolation, mobile layout, and one live macOS tutoring response. Synthetic process tests cover cancellation and timeout. A model response is not proof of teaching quality or learner understanding. Linux live-model operation and Windows local chat are outside this verification.
+Validation: 73 automated tests, syntax and build checks, current-file and reachable-history publication scans, six-track browser checks, pack/conversation isolation, mobile layout, and one live macOS tutoring response. Synthetic process tests cover cancellation and timeout. A model response is not proof of teaching quality or learner understanding. Linux live-model operation and Windows local chat are outside this verification.
+
+The maintainer's contact email is intentionally public. The publication policy permits that exact address in commit metadata while preserving all credential and private-file checks.
