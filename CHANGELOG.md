@@ -1,27 +1,12 @@
 # Changelog
 
-## 0.3.0 — 2026-09-06
+## 0.4.0 — 2026-09-06
 
-- Expand the engineering pack to 40 lessons with eight ordered AI modules and a Kafka consumer-lag lesson in Distributed systems.
-- Keep the previous 31-lesson pack byte-for-byte, with an explicit preview option for reopening its notebooks. New pack selection creates separate histories.
-- Add original teaching material and unsolved framework/capstone exercises; retain the existing FDE route and shared lessons.
-- Refresh the practice screenshot and add an actual AI-route capture with reviewed metadata and exact-byte checks.
+- Remove bundled engineering curriculum, exercise materials and content screenshots from the current release.
+- Replace the former default with one fictional observation sample under a new pack identity.
+- Keep imported packs, browser storage keys and revision histories intact.
+- Document a user-controlled repository-to-JSON pipeline and provide a local pack validator.
 
-Validation: 78 application tests, syntax and static build checks, publication scans of current files and reachable history, and independent content/privacy review. Real-interface checks covered all six filters, all nine new lesson entry points, AI and Kafka recognition/model gates, 375px layout, keyboard focus, manual reduced motion, and reopening the unchanged previous notebook. No learner exercise was solved or live framework, Kafka cluster, provider or deployment experiment run for these materials.
+## Earlier releases
 
-## Documentation update — 2026-09-06
-
-- Add four actual-app screenshots with labelled demo data, capture details and exact-byte publication checks.
-- Replace the README overview with a feature table and clarify local tutoring, storage, pack revisions and release limits.
-
-## 0.2.0 — 2026-09-06
-
-- Add an optional engineering pack: 31 lessons, six tracks and 96 exercise/material files. The original starter pack and its record identity stay unchanged.
-- Add lesson conversations with Explain, Quiz and Check modes, saved drafts, cancellation, retry and archival exports.
-- Keep Codex off by default. Each installer explicitly connects their own supported CLI; static hosting provides a copyable prompt.
-- Add privacy, security, architecture, contribution, setup and testing documentation.
-- Publish only explicit browser assets through GitHub Pages. Add automated publication checks and pin workflow actions to reviewed revisions.
-
-Validation: 73 automated tests, syntax and build checks, current-file and reachable-history publication scans, six-track browser checks, pack/conversation isolation, mobile layout, and one live macOS tutoring response. Synthetic process tests cover cancellation and timeout. A model response is not proof of teaching quality or learner understanding. Linux live-model operation and Windows local chat are outside this verification.
-
-The maintainer's contact email is intentionally public. The publication policy permits that exact address in commit metadata while preserving all credential and private-file checks.
+Versions 0.2.0 and 0.3.0 included generic engineering curriculum and fictional exercises that were intentionally public. Those files remain recoverable in Git history and existing copies; this release does not rewrite history. Earlier releases also introduced portable packs, tutoring through an operator-owned Codex connection, themes, focus rewards, notebook backups and application screenshots.

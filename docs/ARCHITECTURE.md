@@ -15,7 +15,7 @@ flowchart LR
 
 | Boundary | Modules |
 | --- | --- |
-| Authored/imported lesson data | `packs/`, `pack-engine.js`, `content.js`, `catalog.js`, `packs-ui.js` |
+| Imported lesson data and fictional sample | `packs/`, `pack-engine.js`, `content.js`, `catalog.js`, `packs-ui.js` |
 | Practice and notebook | `engine.js`, `backup-engine.js`, `notebook-ui.js`, `app.js` |
 | Focus and appearance | `focus-engine.js`, `focus-ui.js`, `reflections.js`, `appearance.js`, `motion.js` |
 | Conversation | `chat-context.js`, `chat-engine.js`, `chat-ui.js`, `chat.css` |
@@ -30,4 +30,4 @@ The public website and local study desk share browser code. On a static host the
 
 ## Extension boundaries
 
-Add a subject as a validated pack and original materials; do not couple it to personal logs. Add another AI provider only behind the local server boundary, with explicit user setup, validation and failure-path tests. A hosted multi-user backend would require a separately designed authentication, authorization, quota and data-retention system; the current loopback service must not be exposed publicly.
+Keep authored subjects and their materials in a separate repository, then import a validated pack. The app consumes data-only JSON; it has no repository OAuth, Git clone, authenticated resource fetch or automatic synchronization. See [CONTENT_PIPELINE.md](CONTENT_PIPELINE.md) for the supported local boundary. Add another AI provider only behind the local server boundary, with explicit user setup, validation and failure-path tests. A hosted multi-user backend would require a separately designed authentication, authorization, quota and data-retention system; the current loopback service must not be exposed publicly.

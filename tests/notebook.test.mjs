@@ -20,7 +20,7 @@ const {
 
 const NOW = '2026-09-05T10:00:00.000Z';
 const LATER = '2026-09-06T10:00:00.000Z';
-const SESSIONS = [{ id: 'pair-sum', title: 'Pair Sum', category: 'DSA', prerequisites: [] }];
+const SESSIONS = [{ id: 'observe-a-scene', title: 'Describe a scene', category: 'Sample', prerequisites: [] }];
 
 class FakeStorage {
   constructor(seed = {}) {
@@ -43,7 +43,7 @@ function oldV3() {
 
 function noteInput(overrides = {}) {
   return {
-    sessionId: 'pair-sum',
+    sessionId: 'observe-a-scene',
     title: 'Prefix sums',
     body: 'Store the zero prefix before scanning.',
     status: 'open',
@@ -133,7 +133,7 @@ test('optional noteDraft accepts empty composition, rejects malformed buffers, a
   assert.equal(saveState(storage, state).ok, true);
   assert.deepEqual(loadState(storage).state.noteDraft, state.noteDraft);
   assert.equal(isNoteDraftDirty(state), false);
-  state.noteDraft = { ...state.noteDraft, sessionId: 'pair-sum', status: 'revisit' };
+  state.noteDraft = { ...state.noteDraft, sessionId: 'observe-a-scene', status: 'revisit' };
   assert.equal(isNoteDraftDirty(state), false);
   state.noteDraft.title = 'Meaningful draft';
   assert.equal(isNoteDraftDirty(state), true);
@@ -169,7 +169,7 @@ test('merge deduplicates notes by stable id, keeps current conflicts, and import
   const incomingUnique = saveNotebookNote(freshState(LATER), noteInput({ sessionId: '', title: 'Unique note' }), LATER).note;
   const incoming = { ...freshState(LATER), notes: [incomingConflict, incomingUnique] };
   incoming.noteDraft = { id: '', sessionId: '', title: 'Incoming draft', body: '', status: 'open' };
-  currentSaved.state.noteDraft = { id: currentSaved.note.id, sessionId: 'pair-sum', title: 'Current draft', body: '', status: 'revisit' };
+  currentSaved.state.noteDraft = { id: currentSaved.note.id, sessionId: 'observe-a-scene', title: 'Current draft', body: '', status: 'revisit' };
   const merged = mergeStates(currentSaved.state, incoming);
   assert.equal(merged.notes.length, 2);
   assert.equal(merged.notes.find((note) => note.id === currentSaved.note.id).title, 'Current title');
@@ -217,7 +217,7 @@ test('notebook Markdown preserves complete note history and safely fences Markdo
   updated.state.noteDraft = { id: '', sessionId: '', title: '# Draft', body: 'Unsaved ``` body', status: 'open' };
   updated.state.attempts.push({
     id: 'attempt_history',
-    sessionId: 'pair-sum',
+    sessionId: 'observe-a-scene',
     home: 'general',
     capability: 'Recognise prefix sums',
     lenses: ['backend'],

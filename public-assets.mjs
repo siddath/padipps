@@ -5,6 +5,6 @@ export const BROWSER_ASSETS = Object.freeze([
   'notebook-ui.js','focus-ui.js','focus-engine.js','focus.css','reflections.js',
   'chat-ui.js','chat-engine.js','chat-context.js','chat.css',
   'assets/padipps-icon.webp','vendor/gsap-3.15.0.min.js',
-  'packs/starter.json','packs/engineering.json','packs/engineering-v1.json',
+  'packs/starter.json',
 ]);
 export const STATIC_FILES = Object.freeze([...BROWSER_ASSETS,'.nojekyll','LICENSE','THIRD_PARTY_LICENSES.md']);

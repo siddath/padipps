@@ -1,4 +1,0 @@
-# UNSOLVED: empty by default. Add individually reviewed capstone-relative file paths.
-# This file executes nothing and authorizes no publication.
-# Exclude .git history, secrets, customer data, unrelated learning records,
-# personal paths, generated build output, and screenshots containing private panels.

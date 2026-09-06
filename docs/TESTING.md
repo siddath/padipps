@@ -14,13 +14,13 @@ npm run build
 - Study/notebook: gates, self-reported outcomes, validation, note revisions, migration, exports and conflict-preserving restore.
 - Packs/backups: data-only schema, safe references, lesson identity, content fingerprints, separate revision histories and starter compatibility.
 - Focus/reflections: immutable pause/resume, elapsed deadline recovery, explicit interval starts, exactly-once timer receipts, retention and source-linked editorial ideas.
-- Engineering library: complete reusable tracks, valid source/material pointers, ordered prerequisites and intentionally unsolved assignments.
+- Content boundary and pipeline: one neutral schema sample, no bundled curriculum/material files, strict two-file pack builds, invalid-input rejection, non-overwrite behavior and separate revision histories.
 - Conversation: per-pack/lesson isolation, drafts and retention, explicit context, rendering/error boundaries, own-auth resolution, disabled default, version/tool guards, cancellation and request/resource limits.
 - Server/publication: loopback Host/origin checks, served-file allowlist, blocked credential/private paths, rejected secret patterns, redacted findings and static/backend separation.
 
 ## Real interface checks
 
-Use a disposable port and `?qa` namespace. Preview/select the engineering pack, compare each track, open a lesson, switch back to the unchanged starter and confirm histories stay separate. Start a five-second QA focus block only inside the QA namespace; a timer receipt must never count as a practice attempt.
+Use a disposable port and `?qa` namespace. Import a synthetic test pack, preview/select it, compare its tracks, open a lesson, switch back to the sample and confirm histories stay separate. Verify that removed curriculum URLs return 404 and the built artifact includes only the sample JSON. Start a five-second QA focus block only inside the QA namespace; a timer receipt must never count as a practice attempt.
 
 Check Explain/Quiz/Check, saved drafts across reload, a pending response while changing lessons, Stop/Retry and actual exported files. Test default-disabled and static-host manual-copy fallback before any explicitly authorized live model probe. Test a different synthetic auth home without reading real credentials. Confirm browser requests stay on the app's own origin and the hosted build makes no localhost connection.
 
